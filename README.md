@@ -1,2 +1,1 @@
-# timer
-Just a simple Timer
+[Sleek Timer](https://tawsifahmed786.github.io/timer/)
