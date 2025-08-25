@@ -19,7 +19,7 @@ body {
   place-items: center;
   padding: 24px;
 }
-.wrap { width: 100%; max-width: 680px; }
+.wrap { width: 100%; max-width: 880px; }
 .card {
   background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
   border: 1px solid rgba(255,255,255,0.08);
@@ -34,7 +34,7 @@ h1 {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: clamp(20px, 2.4vw, 28px);
+  font-size: clamp(22px, 2.8vw, 32px);
 }
 .sub { color: var(--muted); margin-bottom: 18px; font-size: 14px; }
 
@@ -46,18 +46,18 @@ h1 {
 @media (min-width: 760px) { .grid { grid-template-columns: 1.2fr 1fr; } }
 
 .ring {
-  width: min(360px, 80vw);
+  width: min(520px, 90vw);
   aspect-ratio: 1;
   margin: 8px auto;
   position: relative;
   border-radius: 50%;
-  background: conic-gradient(var(--accent) calc(var(--progress, 0) * 1%), var(--ring-bg) 0);
+  background: conic-gradient(var(--accent) calc(var(--progress, 0) * 1turn), var(--ring-bg) 0);
   transition: background 0.2s linear;
 }
 .ring::before {
   content: "";
   position: absolute;
-  inset: 14px;
+  inset: 18px;
   background: linear-gradient(180deg, #0f1733, #0b1020);
   border-radius: 50%;
   box-shadow: inset 0 6px 24px rgba(0,0,0,0.55);
@@ -73,7 +73,7 @@ h1 {
 }
 .time h2 {
   margin: 0;
-  font-size: clamp(28px, 6.5vw, 56px);
+  font-size: clamp(36px, 8vw, 72px);
   letter-spacing: 1px;
 }
 .time p { margin: 6px 0 0; color: var(--muted); font-size: 14px; }
@@ -88,8 +88,8 @@ h1 {
 label { font-size: 12px; color: var(--muted); }
 
 input[type="number"] {
-  width: 84px;
-  padding: 12px 10px;
+  width: 100px;
+  padding: 14px 12px;
   border-radius: 12px;
   border: 1px solid rgba(255,255,255,0.12);
   background: rgba(255,255,255,0.05);
@@ -105,7 +105,7 @@ input[type="number"] { -moz-appearance: textfield; }
   border: 1px solid rgba(255,255,255,0.12);
   background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
   color: var(--text);
-  padding: 12px 14px;
+  padding: 14px 18px;
   border-radius: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -119,7 +119,7 @@ input[type="number"] { -moz-appearance: textfield; }
 .btn.alt { border-color: rgba(167,139,250,0.35); background: linear-gradient(180deg, rgba(167,139,250,0.18), rgba(167,139,250,0.06)); }
 .btn.danger { border-color: rgba(255,107,107,0.35); background: linear-gradient(180deg, rgba(255,107,107,0.18), rgba(255,107,107,0.06)); }
 
-.row { display: flex; align-items: end; gap: 12px; flex-wrap: wrap; }
+.row { margin-top: 15vh; display: flex; align-items: end; gap: 12px; flex-wrap: wrap; }
 .row .field { display: grid; gap: 6px; }
 
 .tips {

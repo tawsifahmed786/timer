@@ -19,7 +19,6 @@ const minutes = document.getElementById('minutes');
 const seconds = document.getElementById('seconds');
 const footerStatus = document.getElementById('footerStatus');
 
-
 let startTime = 0;
 let endTime = 0;
 let duration = 0;
@@ -27,7 +26,6 @@ let pausedAt = 0;
 let rafId = null;
 let running = false;
 let finished = false;
-
 
 const saved = localStorage.getItem('timer_duration_ms');
 if (saved) {
@@ -128,6 +126,7 @@ function reset() {
   resetBtn.disabled = true;
   hours.disabled = minutes.disabled = seconds.disabled = false;
   const ms = getInputDuration();
+  duration = ms;
   timeDisplay.textContent = fmt(ms);
   updateRing(ms);
   document.title = 'Timer ⏱️';
@@ -160,7 +159,6 @@ function shakeInputs() {
   });
 }
 
-
 function notifyDone() {
   try {
     if (document.hidden && 'Notification' in window) {
@@ -175,21 +173,21 @@ function notifyDone() {
   } catch {}
 }
 function beep() {
-try {
-const ctx = new (window.AudioContext || window.webkitAudioContext)();
-const o = ctx.createOscillator();
-const g = ctx.createGain();
-o.type = 'sine';
-o.frequency.value = 440;
-o.connect(g);
-g.connect(ctx.destination);
-g.gain.setValueAtTime(0.0001, ctx.currentTime);
-g.gain.exponentialRampToValueAtTime(0.6, ctx.currentTime + 0.05);
-o.start();
-g.gain.setValueAtTime(0.6, ctx.currentTime + 0.1);
-g.gain.linearRampToValueAtTime(0.0001, ctx.currentTime + 5);
-o.stop(ctx.currentTime + 5);
-} catch {}
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    o.type = 'sine';
+    o.frequency.value = 440;
+    o.connect(g);
+    g.connect(ctx.destination);
+    g.gain.setValueAtTime(0.0001, ctx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.6, ctx.currentTime + 0.05);
+    o.start();
+    g.gain.setValueAtTime(0.6, ctx.currentTime + 0.1);
+    g.gain.linearRampToValueAtTime(0.0001, ctx.currentTime + 5);
+    o.stop(ctx.currentTime + 5);
+  } catch {}
 }
 function vibrate() {
   try { if (navigator.vibrate) navigator.vibrate([100, 100, 100]); } catch {}
