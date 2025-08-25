@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Timer ⏱️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" role="region" aria-label="Timer">
+      <h1>⏱️ Sleek Timer</h1>
+      <p class="sub">Set a duration and press <strong>Start</strong>. Works offline, supports notifications, and beeps when finished.</p>
+
+      <div class="grid">
+        
+        <div>
+          <div class="ring" id="ring" style="--progress: 0" aria-hidden="true">
+            <div class="time" aria-live="polite">
+              <p></p>
+              <h2 id="timeDisplay">00:00:00</h2>
+              <p id="statusText">Idle</p>
+            </div>
+          </div>
+        </div>
+
+        
+        <div>
+          <div class="row">
+            <div class="field">
+              <label for="hours">Hours</label>
+              <input id="hours" type="number" min="0" max="99" value="0" inputmode="numeric" />
+            </div>
+            <div class="field">
+              <label for="minutes">Minutes</label>
+              <input id="minutes" type="number" min="0" max="59" value="5" inputmode="numeric" />
+            </div>
+            <div class="field">
+              <label for="seconds">Seconds</label>
+              <input id="seconds" type="number" min="0" max="59" value="0" inputmode="numeric" />
+            </div>
+          </div>
+
+          <div class="controls" style="margin-top: 16px;">
+            <button class="btn primary" id="startBtn" aria-label="Start timer (Space)">▶ Start</button>
+            <button class="btn alt" id="pauseBtn" aria-label="Pause/Resume (Space)" disabled>⏸ Pause</button>
+            <button class="btn danger" id="resetBtn" aria-label="Reset (R)" disabled>↺ Reset</button>
+          </div>
+
+          <div class="tips">
+            Shortcuts: <code>Space</code> to start/pause, <code>R</code> to reset. Last duration is remembered.
+          </div>
+
+          <div class="footer">
+            <span class="status" id="footerStatus">Ready</span>
+            <span>🔔 Grant notifications when prompted to get an alert on finish.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
